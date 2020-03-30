@@ -1,5 +1,7 @@
 from constants import *
 import pygame
+import block
+import hurdel
 
 
 
@@ -8,6 +10,8 @@ surface = pygame.display.set_mode((GAME_WIDTH, GAME_HEIGHT))
 
 pygame.init()
 
+block = block.Block()
+hurdel = hurdel.Hurdel()
 
 def main():
     running = True
@@ -26,13 +30,15 @@ def main():
 
 def draw():
     surface.fill((0, 0, 0))#background
-    pygame.draw.rect(surface, (RED), (50, 50, 50, 50))
+    block.draw(surface)
+    hurdel.draw(surface)
     pygame.display.flip()
 
 
 
 def update():
-    pass
+    block.update()
+    hurdel.update()
 
 
 
